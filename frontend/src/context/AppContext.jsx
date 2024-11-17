@@ -1,9 +1,20 @@
-import React from 'react'
+import { createContext } from "react";
+import { doctors } from "../assets/assets";
 
-const AppContext = () => {
-  return (
-    <div>AppContext</div>
-  )
+export const AppContext = createContext()
+
+const AppContextProvider = (props) => {
+
+    const value = {
+        doctors
+    }
+
+    return (
+        <AppContext.Provider value={value}>
+            {props.children}
+        </AppContext.Provider>
+    )
+
 }
 
-export default AppContext
+export default AppContextProvider
